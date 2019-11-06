@@ -3,12 +3,14 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
+    "declaration": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
+    "removeComments": true,
     "paths": {
       "*": [
         "node_modules/*",
@@ -18,5 +20,9 @@
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

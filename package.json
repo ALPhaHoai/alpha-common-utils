@@ -9,7 +9,7 @@
     "url" : "https://github.com/ALPhaHoai/alpha-common-utils.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": ["langutils","stringutils","commonutils","javascriptutils","alpha-common-utils"],
   "author": "ALPhaHoai",
