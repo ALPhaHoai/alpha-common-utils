@@ -54,3 +54,39 @@ function findFirstDuplicatedItem(arr, filter) {
     return -1
 }
 
+export function sortBy(arr, iteratees) {
+    if (!Array.isArray(iteratees)) {
+        iteratees = [iteratees]
+    }
+    return arr.sort(function (item1, item2) {
+        for (const iteratee of iteratees) {
+            let diff = null
+            let value1, value2
+            if (typeof iteratee === "string") {
+                value1 = item1?.[iteratee]
+                value2 = item2?.[iteratee]
+            } else if (typeof iteratee === "function") {
+                value1 = iteratee(item1)
+                value2 = iteratee(item2)
+            }
+
+            if (value1 === undefined) {
+                if (value2 === undefined) {
+                    continue
+                } else {
+                    return 1
+                }
+            } else {
+                if (value2 === undefined) {
+                    return -1
+                } else {
+                    diff = value1 - value2
+                }
+            }
+            if (diff !== 0 && diff !== undefined && !(typeof diff === "number" && isNaN(diff))) {
+                return diff
+            }
+        }
+        return 0
+    })
+}

@@ -1,3 +1,5 @@
+import "./lodash.js";
+
 function main() {
 
 }
