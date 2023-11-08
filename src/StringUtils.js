@@ -49,3 +49,8 @@ export function toNonAccentVietnamese(str) {
     str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
     return str;
 }
+
+export function cleanSpace(txt) {
+    if (!str || typeof str !== "string") return '';
+    return txt.replaceAll(/[\t\n\r]/gi, ' ').replaceAll(/\s+/g, ' ').trim()
+}
