@@ -1,6 +1,6 @@
 {
   "name": "alpha-common-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A personal JavaScript utility library",
   "main": "dist/stringutils.js",
   "homepage": "https://github.com/ALPhaHoai/alpha-common-utils",
