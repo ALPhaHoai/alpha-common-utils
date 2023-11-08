@@ -13,5 +13,6 @@
   },
   "keywords": ["langutils","stringutils","commonutils","javascriptutils","alpha-common-utils"],
   "author": "ALPhaHoai",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
