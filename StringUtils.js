@@ -1,5 +1,5 @@
-export function replaceAll(txt, find, replacement) {
-    return txt.replace(new RegExp(find, 'g'), replacement);
+export function replaceAll(str, find, replacement) {
+    return str.replace(new RegExp(find, 'g'), replacement);
 }
 
 
@@ -50,7 +50,7 @@ export function toNonAccentVietnamese(str) {
     return str;
 }
 
-export function cleanSpace(txt) {
+export function cleanSpace(str) {
     if (!str || typeof str !== "string") return '';
-    return txt.replaceAll(/[\t\n\r]/gi, ' ').replaceAll(/\s+/g, ' ').trim()
+    return str.replaceAll(/[\t\n\r]/gi, ' ').replaceAll(/\s+/g, ' ').trim()
 }
