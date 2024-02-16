@@ -54,3 +54,108 @@ export function cleanSpace(str) {
     if (!str || typeof str !== "string") return '';
     return str.replaceAll(/[\t\n\r]/gi, ' ').replaceAll(/\s+/g, ' ').trim()
 }
+
+String.prototype.substringAfter = function (delimiter) {
+    const index = this.indexOf(delimiter)
+    if (index === -1) {
+        return this
+    }
+    return this.substring(index + delimiter.length)
+}
+
+String.prototype.substringAfterOrNull = function (delimiter) {
+    const index = this.indexOf(delimiter)
+    if (index === -1) {
+        return null
+    }
+    return this.substring(index + delimiter.length)
+}
+
+String.prototype.substringBefore = function (delimiter) {
+    const index = this.indexOf(delimiter)
+    if (index === -1) {
+        return this
+    }
+    return this.substring(0, index)
+}
+
+String.prototype.substringBeforeOrNull = function (delimiter) {
+    const index = this.indexOf(delimiter)
+    if (index === -1) {
+        return null
+    }
+    return this.substring(0, index)
+}
+
+String.prototype.substringBeforeLast = function (delimiter) {
+    const index = this.lastIndexOf(delimiter)
+    if (index === -1) {
+        return this
+    }
+    return this.substring(0, index)
+}
+
+String.prototype.substringBeforeLastOrNull = function (delimiter) {
+    const index = this.lastIndexOf(delimiter)
+    if (index === -1) {
+        return null
+    }
+    return this.substring(0, index)
+}
+
+String.prototype.substringAfterLast = function (delimiter) {
+    const index = this.lastIndexOf(delimiter)
+    if (index === -1) {
+        return this
+    }
+    return this.substring(index + delimiter.length)
+}
+
+String.prototype.substringAfterLastOrNull = function (delimiter) {
+    const index = this.lastIndexOf(delimiter)
+    if (index === -1) {
+        return null
+    }
+    return this.substring(index + delimiter.length)
+}
+
+String.prototype.removePrefix = function (prefix) {
+    if (!this.startsWith(prefix)) {
+        return this
+    }
+    return this.substring(prefix.length, this.length)
+}
+
+String.prototype.removeSuffix = function (suffix) {
+    if (!this.endsWith(suffix)) {
+        return this
+    }
+    return this.substring(0, this.length - suffix.length)
+}
+
+String.prototype.removeSurrounding = function (_fix) {
+    return this.removePrefix(_fix).removeSuffix(_fix)
+}
+
+String.prototype.substringBetween = function (prefix, suffix) {
+    return this.substringAfter(prefix).substringBefore(suffix)
+}
+
+String.prototype.substringBetweenOrNull = function (prefix, suffix) {
+    let text = this
+
+    text = text.substringAfterOrNull(prefix)
+    if (text === null) return null
+
+    text = text.substringBeforeOrNull(suffix)
+    if (text === null) return null
+    return text
+}
+
+String.prototype.isEmpty = function () {
+    return this.length === 0
+}
+
+String.prototype.isBlank = function () {
+    return this.trim().length === 0
+}
